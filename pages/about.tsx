@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
-import { MainLayout } from '@/components/layout'
+import { AdminLayout } from '@/components/layout'
+import { Box, Typography } from '@mui/material'
 
 const Header = dynamic(() => import('@/components/common/header'), { ssr: false })
 
@@ -32,13 +33,17 @@ export default function AboutPage(props: AboutPageProps) {
 				},
 			},
 			undefined,
+			// only fetch data on client
+			// update on client, not call getStaticProps on server
 			{ shallow: true }
 		)
 	}
 
 	return (
-		<div>
-			<h1>About Page</h1>
+		<Box>
+			<Typography component="h1" variant="h3" color="primary.main">
+				About Page
+			</Typography>
 
 			<Header />
 
@@ -49,11 +54,11 @@ export default function AboutPage(props: AboutPageProps) {
 			</ul>
 
 			<button onClick={handleNextClick}>Next page</button>
-		</div>
+		</Box>
 	)
 }
 
-AboutPage.Layout = MainLayout
+AboutPage.Layout = AdminLayout
 
 export const getStaticProps = async () => {
 	return {
