@@ -1,10 +1,10 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
 
 // Create a theme instance.
-export const theme = createTheme({
+export let theme = createTheme({
   typography: {
-    fontFamily: "Heebo, sans-serif"
+    fontFamily: "Heebo, sans-serif",
   },
   palette: {
     primary: {
@@ -17,6 +17,9 @@ export const theme = createTheme({
     error: {
       main: red.A400,
     },
+    text: {
+      primary: '#21243d'
+    }
   },
   components: {
     MuiContainer: {
@@ -62,3 +65,13 @@ export const theme = createTheme({
     }
   }
 });
+
+theme = responsiveFontSizes(theme)
+
+// theme.typography.h3 = {
+//   fontSize: '2rem',
+
+//   [theme.breakpoints.up('md')]: {
+//     fontSize: '3rem'
+//   }
+// }
