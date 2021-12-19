@@ -3,12 +3,16 @@ import { red } from '@mui/material/colors';
 
 // Create a theme instance.
 export const theme = createTheme({
+  typography: {
+    fontFamily: "Heebo, sans-serif"
+  },
   palette: {
     primary: {
       main: '#ff6464',
     },
     secondary: {
       main: '#00abcc',
+      light: '#edf7fa'
     },
     error: {
       main: red.A400,
@@ -35,6 +39,26 @@ export const theme = createTheme({
           }
         }
       },
+    },
+    MuiLink: {
+      defaultProps: { underline: 'none' },
+      styleOverrides: {
+        root: {
+          color: 'black',
+
+          '&:hover, &.active': {
+            color: '#ff6464',
+          }
+        }
+      }
+    },
+    MuiButton: {
+      variants: [
+        {
+          props: { variant: 'contained', color: 'primary' },
+          style: { color: 'white' }
+        }
+      ]
     }
   }
 });
