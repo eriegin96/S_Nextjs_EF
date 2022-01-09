@@ -1,10 +1,11 @@
 import { useRouter } from 'next/router'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
 import { AdminLayout } from '@/components/layout'
 import { Box, Typography } from '@mui/material'
+import { Header } from '@/components/common'
 
-const Header = dynamic(() => import('@/components/common/header'), { ssr: false })
+// const Header = dynamic(() => import('@/components/common/header'), { ssr: false })
 
 export interface AboutPageProps {}
 
